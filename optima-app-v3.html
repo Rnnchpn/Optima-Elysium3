@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Optima — Unlock Your Potential</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060709;--s1:#0f1117;--s2:#161a23;--s3:#1d2230;--b1:#232940;--b2:#2e3550;--gold:#d4a853;--gl:#f2d992;--gd:#a07c2e;--gg:rgba(212,168,83,.13);--gg2:rgba(212,168,83,.05);--t1:#ede9e2;--t2:#a9a196;--t3:#625d56;--red:#ef4f63;--grn:#2dd4a0;--blu:#4d9fff;--pur:#a06eff;--cyn:#30d5d5;--org:#ff8c3a;--pnk:#ff6eb4;--r:16px;--rs:11px;--nh:56px}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:'Sora',sans-serif;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--b1);border-radius:2px}
+
+.amb{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.amb .orb{position:absolute;border-radius:50%;filter:blur(120px);animation:oF 24s ease-in-out infinite}
+.amb .o1{width:500px;height:500px;background:rgba(212,168,83,.09);top:-10%;left:-10%}
+.amb .o2{width:400px;height:400px;background:rgba(160,110,255,.07);bottom:-8%;right:-10%;animation-delay:-9s}
+.amb .o3{width:300px;height:300px;background:rgba(77,159,255,.04);top:40%;right:10%;animation-delay:-16s}
+@keyframes oF{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(50px,-30px) scale(1.06)}66%{transform:translate(-20px,45px) scale(.93)}}
+body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.018'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+
+.g{background:rgba(255,255,255,.02);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.05);border-radius:var(--r);transition:all .3s cubic-bezier(.22,1,.36,1)}
+.g:hover{border-color:rgba(255,255,255,.09)}
+.serif{font-family:'Cormorant Garamond',serif}
+
+/* TOPBAR */
+.tb{position:fixed;top:0;left:0;right:0;height:var(--nh);background:rgba(6,7,9,.82);backdrop-filter:blur(28px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.03);z-index:100;display:flex;align-items:center;padding:0 16px}
+.tb-l{display:flex;align-items:center;gap:8px}
+.lo{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--gold);position:relative}
+.lo::after{content:'';position:absolute;width:4px;height:4px;background:var(--gl);border-radius:50%;top:-3px;left:50%;transform:translateX(-50%);box-shadow:0 0 8px var(--gold);animation:lorb 6s linear infinite}
+@keyframes lorb{from{transform:translateX(-50%) rotate(0) translateY(-13px)}to{transform:translateX(-50%) rotate(360deg) translateY(-13px)}}
+.lt{font-weight:700;font-size:14px;letter-spacing:3px;color:var(--gl);text-transform:uppercase}
+.tb-on{margin-left:8px;display:flex;align-items:center;gap:4px;background:rgba(45,212,160,.06);border:1px solid rgba(45,212,160,.14);padding:2px 8px;border-radius:100px;font-size:9px;color:var(--grn);font-weight:500}
+.pd{width:4px;height:4px;background:var(--grn);border-radius:50%;animation:pu 2s infinite}
+@keyframes pu{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+.tb-r{margin-left:auto;display:flex;align-items:center;gap:7px}
+.tb-b{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;color:var(--t2);cursor:pointer;transition:.25s;font-size:12px;position:relative}
+.tb-b:hover{border-color:var(--gold);color:var(--gold)}
+.tb-b .dot{position:absolute;top:4px;right:4px;width:5px;height:5px;background:var(--red);border-radius:50%;border:1.5px solid var(--bg)}
+.tb-a{width:28px;height:28px;border-radius:8px;border:1.5px solid var(--gold);overflow:hidden;cursor:pointer;transition:.2s}
+.tb-a:hover{transform:scale(1.08)}
+.tb-a img{width:100%;height:100%;object-fit:cover}
+
+/* BOTTOM NAV */
+.bn{position:fixed;bottom:0;left:0;right:0;height:66px;background:rgba(6,7,9,.88);backdrop-filter:blur(28px) saturate(1.5);border-top:1px solid rgba(255,255,255,.03);z-index:100;display:flex;align-items:center;justify-content:space-around;padding:0 2px;padding-bottom:env(safe-area-inset-bottom)}
+.ni{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:5px 10px;border-radius:12px;transition:.3s;color:var(--t3);min-width:44px;position:relative}
+.ni:hover{color:var(--t2)}.ni.on{color:var(--gold)}
+.ni.on::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:14px;height:2px;background:var(--gold);border-radius:1px;box-shadow:0 0 6px var(--gg)}
+.ni svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ni span{font-size:8px;font-weight:600;letter-spacing:.4px;text-transform:uppercase}
+
+/* PAGES */
+.mn{padding-top:calc(var(--nh) + 10px);padding-bottom:82px;min-height:100vh;position:relative;z-index:1}
+.pg{display:none;animation:pgI .4s cubic-bezier(.22,1,.36,1)}.pg.on{display:block}
+@keyframes pgI{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* SHARED */
+.sh{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 8px}
+.sh h2{font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;letter-spacing:.2px}
+.sh .sa{font-size:10px;color:var(--gold);cursor:pointer;font-weight:500;opacity:.7;transition:.2s}
+.sh .sa:hover{opacity:1}
+.sub-h{display:flex;align-items:center;gap:9px;padding:12px 20px;cursor:pointer}
+.sub-h .bk{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;color:var(--t2);transition:.2s;font-size:13px}
+.sub-h .bk:hover{border-color:var(--gold);color:var(--gold)}
+.sub-h h3{font-size:14px;font-weight:700}
+
+/* ======== AD COMPONENT ======== */
+.ad-card{margin:0 20px;border-radius:var(--r);overflow:hidden;position:relative;cursor:pointer;transition:.4s}
+.ad-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.ad-img{width:100%;height:160px;object-fit:cover;display:block}
+.ad-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.85) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:16px}
+.ad-sponsor{font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--t3);margin-bottom:4px;display:flex;align-items:center;gap:4px}
+.ad-sponsor::before{content:'';width:3px;height:3px;background:var(--gold);border-radius:50%}
+.ad-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--t1);line-height:1.2}
+.ad-sub{font-size:10px;color:var(--t2);margin-top:3px}
+.ad-cta{display:inline-flex;align-items:center;gap:5px;margin-top:8px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);font-size:9px;font-weight:600;color:var(--t1);border:1px solid rgba(255,255,255,.12);transition:.25s;width:fit-content}
+.ad-cta:hover{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.ad-badge{position:absolute;top:10px;right:10px;padding:2px 7px;border-radius:4px;font-size:7px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);color:var(--t3);border:1px solid rgba(255,255,255,.06)}
+
+/* ======== LOBBY ======== */
+.lob{padding:14px}
+.rank-b{display:flex;align-items:center;gap:11px;padding:15px;margin-bottom:12px;position:relative;overflow:hidden}
+.rank-b::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gg) 0%,transparent 65%);pointer-events:none;border-radius:var(--r)}
+.rk-i{width:44px;height:44px;border-radius:12px;background:linear-gradient(145deg,var(--gd),var(--gold),var(--gl));display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;box-shadow:0 4px 18px var(--gg),inset 0 1px 0 rgba(255,255,255,.2)}
+.rk-bd{flex:1;min-width:0;position:relative;z-index:1}
+.rk-rw{display:flex;justify-content:space-between;align-items:center}
+.rk-t{font-size:11px;font-weight:700;color:var(--gl);text-transform:uppercase;letter-spacing:1px}
+.rk-xp{font-size:9px;color:var(--t3);font-weight:600}
+.rk-s{font-size:9px;color:var(--t3);margin:1px 0 5px}
+.xp-o{height:4px;background:rgba(255,255,255,.03);border-radius:2px;overflow:hidden}
+.xp-i{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--gd),var(--gold),var(--gl));position:relative}
+.xp-i::after{content:'';position:absolute;right:0;top:0;bottom:0;width:24px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25));animation:xpS 2.5s ease-in-out infinite}
+@keyframes xpS{0%,100%{opacity:0}50%{opacity:1}}
+
+.os{display:flex;gap:8px;margin-bottom:14px;overflow-x:auto;padding:2px 0;scrollbar-width:none}.os::-webkit-scrollbar{display:none}
+.oc{flex-shrink:0;display:flex;align-items:center;gap:6px;padding:4px 10px 4px 4px;border-radius:100px}
+.oc img{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gd);object-fit:cover}
+.oc .on{font-size:10px;font-weight:600}.oc .or{font-size:8px;color:var(--gd);font-weight:500}
+
+.av-h{text-align:center;padding:8px 0 16px;position:relative}
+.av-w{position:relative;width:160px;height:160px;margin:0 auto 12px}
+.av-gl{position:absolute;inset:-28px;border-radius:50%;background:radial-gradient(circle,var(--gg) 0%,transparent 60%);animation:avG 4s ease-in-out infinite}
+@keyframes avG{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.8;transform:scale(1.06)}}
+.av-r{position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(212,168,83,.35);animation:avR 14s linear infinite}
+.av-r::before{content:'';position:absolute;top:-3px;left:50%;width:6px;height:6px;background:var(--gl);border-radius:50%;transform:translateX(-50%);box-shadow:0 0 10px var(--gold)}
+.av-r2{position:absolute;inset:-7px;border-radius:50%;border:1px dashed rgba(212,168,83,.08);animation:avR 22s linear infinite reverse}
+@keyframes avR{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.av-im{position:absolute;inset:8px;border-radius:50%;overflow:hidden;background:var(--s2)}.av-im img{width:100%;height:100%;object-fit:cover}
+.av-n{font-size:20px;font-weight:700;letter-spacing:.3px}
+.av-tg{color:var(--t3);font-size:10px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;margin-top:2px}
+/* Verified badge */
+.vb{display:inline-flex;align-items:center;gap:3px;background:rgba(45,212,160,.08);border:1px solid rgba(45,212,160,.18);padding:2px 7px;border-radius:100px;font-size:8px;color:var(--grn);font-weight:600;margin-top:6px}
+
+.st-r{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.st-c{padding:12px 6px;text-align:center}
+.st-v{font-size:20px;font-weight:800;font-family:'Cormorant Garamond',serif}
+.st-v.vg{color:var(--gold)}.st-v.vgr{color:var(--grn)}.st-v.vb{color:var(--blu)}
+.st-l{font-size:8px;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-top:2px;font-weight:500}
+
+.mc{padding:14px;display:flex;align-items:center;gap:12px;margin-top:12px}
+.mc-i{width:44px;height:44px;border-radius:13px;background:linear-gradient(145deg,var(--gd),var(--gold));display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;box-shadow:0 4px 14px var(--gg)}
+.mc-b{flex:1;min-width:0}.mc-t{font-size:12px;font-weight:600}.mc-s{font-size:9px;color:var(--t3);margin-top:1px}
+.mc-n{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--gl);flex-shrink:0}
+
+/* Skins */
+.sks{display:flex;gap:10px;padding:0 20px;overflow-x:auto;scrollbar-width:none}.sks::-webkit-scrollbar{display:none}
+.sk{flex-shrink:0;width:88px;padding:9px;text-align:center;cursor:pointer}
+.sk:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 10px 28px rgba(0,0,0,.4)}
+.sk.eq{border-color:var(--gold);box-shadow:0 0 18px var(--gg)}.sk.lk{opacity:.3;filter:grayscale(.6)}
+.sk-a{width:50px;height:50px;border-radius:50%;margin:0 auto 6px;background:var(--s3);overflow:hidden;border:2px solid var(--b1);transition:.3s}
+.sk.eq .sk-a,.sk:hover .sk-a{border-color:var(--gold)}
+.sk-a img{width:100%;height:100%;object-fit:cover}
+.sk-n{font-size:9px;font-weight:600;color:var(--t2)}.sk-t{font-size:7px;color:var(--gold);margin-top:1px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}.sk-t.lt{color:var(--t3)}
+
+/* Level table */
+.lt-t{margin:0 20px;overflow:hidden}
+.lt-h{display:grid;grid-template-columns:42px 1fr 1fr 66px;padding:8px 12px;background:rgba(255,255,255,.015);font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--t3)}
+.lt-r{display:grid;grid-template-columns:42px 1fr 1fr 66px;padding:10px 12px;border-top:1px solid rgba(255,255,255,.025);align-items:center;font-size:10px;transition:.2s}
+.lt-r:hover{background:var(--gg2)}
+.lv-n{font-weight:700;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:16px}
+.lv-rw{color:var(--t2);font-size:9px}.lv-xp{color:var(--t3);font-size:9px;font-weight:500}
+.lv-b{display:inline-flex;padding:2px 6px;border-radius:5px;font-size:8px;font-weight:600}
+.lv-b.u{background:rgba(45,212,160,.07);color:var(--grn)}.lv-b.c{background:var(--gg);color:var(--gold)}.lv-b.l{background:rgba(255,255,255,.025);color:var(--t3)}
+
+/* Quick Actions */
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 20px}
+.qc{display:flex;align-items:center;gap:10px;padding:12px;cursor:pointer}
+.qc:hover{border-color:var(--gold);transform:translateY(-2px)}
+.qi{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.qi.ib{background:rgba(239,79,99,.07);border:1px solid rgba(239,79,99,.15)}.qi.ig{background:rgba(45,212,160,.07);border:1px solid rgba(45,212,160,.15)}.qi.ibl{background:rgba(77,159,255,.07);border:1px solid rgba(77,159,255,.15)}.qi.ip{background:rgba(160,110,255,.07);border:1px solid rgba(160,110,255,.15)}
+.qt{font-size:10px;font-weight:600}.qs{font-size:8px;color:var(--t3);margin-top:1px}
+
+/* ======== HEALTH ======== */
+.hts{display:flex;gap:4px;padding:8px 20px;overflow-x:auto;scrollbar-width:none}.hts::-webkit-scrollbar{display:none}
+.ht{flex-shrink:0;padding:6px 13px;border-radius:100px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015);color:var(--t3);transition:.25s}
+.ht.on{background:var(--gg);border-color:rgba(212,168,83,.3);color:var(--gold)}
+.hp{display:none;padding:12px 20px;animation:pgI .3s ease}.hp.on{display:block}
+
+.bl-c{padding:13px;margin-bottom:8px}
+.bl-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.bl-nm{font-size:11px;font-weight:600}
+.bl-v{font-size:16px;font-weight:800;font-family:'Cormorant Garamond',serif}
+.bl-v.n{color:var(--grn)}.bl-v.w{color:var(--org)}.bl-v.d{color:var(--red)}
+.bl-rg{display:flex;align-items:center;gap:6px;font-size:8px;color:var(--t3)}
+.bl-br{flex:1;height:3px;background:rgba(255,255,255,.03);border-radius:2px;overflow:hidden}
+.bl-bf{height:100%;border-radius:2px}.bl-bf.n{background:var(--grn)}.bl-bf.w{background:var(--org)}.bl-bf.d{background:var(--red)}
+
+.ob{width:100%;padding:12px;border-radius:var(--r);background:rgba(239,79,99,.05);border:1px solid rgba(239,79,99,.15);color:var(--t1);font-family:'Sora',sans-serif;font-size:11px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:.3s;margin-top:5px}
+.ob:hover{background:rgba(239,79,99,.1)}.ob.blue{background:rgba(77,159,255,.05);border-color:rgba(77,159,255,.15)}.ob.blue:hover{background:rgba(77,159,255,.1)}
+
+/* Sleep ring */
+.slp-c{text-align:center;padding:20px 0}
+.slp-r{width:140px;height:140px;border-radius:50%;position:relative;margin:0 auto;display:flex;align-items:center;justify-content:center}
+.slp-r svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.slp-r circle{fill:none;stroke-width:5}.bg-c{stroke:rgba(255,255,255,.03)}.fg-c{stroke:var(--pur);stroke-dasharray:410;stroke-dashoffset:102;stroke-linecap:round}
+.slp-v{font-size:30px;font-weight:800;font-family:'Cormorant Garamond',serif;color:var(--pur);position:relative;z-index:1}
+.slp-u{font-size:10px;color:var(--t3);display:block;font-family:'Sora',sans-serif}
+.slp-s{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.slp-si{padding:10px;text-align:center}.slp-sv{font-size:14px;font-weight:700;color:var(--pur)}.slp-sl{font-size:8px;color:var(--t3);text-transform:uppercase;letter-spacing:.3px;margin-top:1px}
+
+/* Fitness */
+.fit{overflow:hidden;margin-bottom:8px;cursor:pointer}.fit:hover{border-color:rgba(255,255,255,.1);transform:translateY(-2px)}
+.fit-th{height:120px;background:linear-gradient(135deg,var(--s2),var(--s3));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.fit-th::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(16,19,24,.95) 100%)}
+.play{width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;z-index:1;box-shadow:0 0 24px var(--gg);font-size:12px;color:var(--bg);transition:.3s}
+.fit:hover .play{transform:scale(1.1)}
+.fit-i{padding:12px}.fit-i h4{font-size:12px;font-weight:700;margin-bottom:2px}.fit-i p{font-size:9px;color:var(--t3)}
+.fit-tg{display:flex;gap:4px;margin-top:6px}
+.ft{padding:2px 6px;border-radius:4px;font-size:8px;font-weight:500;background:rgba(255,255,255,.03);color:var(--t2)}.ft.xp{background:var(--gg);color:var(--gold)}
+
+/* Running */
+.run{padding:13px;margin-bottom:8px}
+.run-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+.run-t{font-size:12px;font-weight:700}.run-d{font-size:8px;color:var(--t3)}
+.run-s{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.rsv{font-size:18px;font-weight:800;font-family:'Cormorant Garamond',serif;text-align:center}
+.rsl{font-size:7px;color:var(--t3);text-transform:uppercase;letter-spacing:.4px;text-align:center;margin-top:1px}
+
+/* Whoop */
+.whp{padding:18px;text-align:center;margin-bottom:12px;border-color:rgba(160,110,255,.18)}
+.whp h4{font-size:13px;font-weight:700;margin:7px 0 2px}.whp p{font-size:9px;color:var(--t3);margin-bottom:10px}
+.wbtn{padding:8px 20px;border-radius:100px;background:var(--pur);border:none;color:#fff;font-family:'Sora',sans-serif;font-size:10px;font-weight:600;cursor:pointer;transition:.3s;box-shadow:0 4px 14px rgba(160,110,255,.18)}
+.wbtn:hover{transform:scale(1.06)}
+
+/* ======== CHECKUP ======== */
+.psp{margin:14px 20px;padding:20px;border-color:rgba(212,168,83,.2);position:relative;overflow:hidden}
+.psp::before{content:'';position:absolute;top:-45px;right:-45px;width:130px;height:130px;border-radius:50%;border:1.5px solid var(--gg);opacity:.3}
+.ppb{display:inline-flex;align-items:center;gap:4px;background:var(--gg);border:1px solid rgba(212,168,83,.22);padding:2px 8px;border-radius:100px;font-size:8px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
+.psp h3{font-size:18px;font-weight:700;font-family:'Cormorant Garamond',serif;margin-bottom:2px}
+.psp .pps{font-size:10px;color:var(--t3);margin-bottom:12px}
+.pp-g{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.pp-s{background:var(--bg);border:1px solid rgba(255,255,255,.03);border-radius:var(--rs);padding:10px;text-align:center}
+.pp-sv{font-size:20px;font-weight:800;font-family:'Cormorant Garamond',serif}.pp-sl{font-size:8px;color:var(--t3);text-transform:uppercase;letter-spacing:.3px;margin-top:1px}
+.pp-sv.ex{color:var(--grn)}.pp-sv.gd{color:var(--blu)}.pp-sv.md{color:var(--org)}
+
+.tc{margin:0 20px 8px;padding:13px;display:flex;align-items:center;gap:11px;cursor:pointer}
+.tc:hover{border-color:var(--gold);transform:translateX(3px)}
+.tci{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.tci.lc{background:rgba(48,213,213,.07);border:1px solid rgba(48,213,213,.13)}.tci.rk{background:rgba(255,140,58,.07);border:1px solid rgba(255,140,58,.13)}.tci.fm{background:rgba(45,212,160,.07);border:1px solid rgba(45,212,160,.13)}
+.tc h4{font-size:11px;font-weight:600}.tc p{font-size:9px;color:var(--t3)}
+.tc .ar{margin-left:auto;color:var(--t3);font-size:13px;transition:.2s}.tc:hover .ar{color:var(--gold)}
+
+/* ======== TOURNAMENT ======== */
+.tour{margin:14px 20px;padding:20px;text-align:center;border-color:rgba(212,168,83,.18);background:linear-gradient(135deg,rgba(212,168,83,.03),transparent);position:relative;overflow:hidden}
+.tour::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:160px;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.tour h2{font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:3px}.tour p{font-size:10px;color:var(--t3);margin-bottom:12px}
+.tlv{display:inline-flex;align-items:center;gap:4px;background:rgba(239,79,99,.07);border:1px solid rgba(239,79,99,.18);padding:4px 10px;border-radius:100px;font-size:9px;color:var(--red);font-weight:600}
+
+.lb{margin:0 20px}
+.lr{display:flex;align-items:center;gap:10px;padding:10px 12px;margin-bottom:6px}.lr:hover{border-color:rgba(255,255,255,.08)}
+.lr.t1{border-color:rgba(212,168,83,.25);background:rgba(212,168,83,.04)}
+.lp{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;width:22px;text-align:center;color:var(--t3)}.lr.t1 .lp{color:var(--gold)}
+.la{width:32px;height:32px;border-radius:9px;overflow:hidden;flex-shrink:0;border:1.5px solid var(--b1)}.lr.t1 .la{border-color:var(--gold)}
+.la img{width:100%;height:100%;object-fit:cover}
+.li{flex:1;min-width:0}.ln{font-size:11px;font-weight:600}.lrk{font-size:8px;color:var(--t3)}
+.lsc{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;color:var(--gold);flex-shrink:0}
+
+/* Chat */
+.chat{margin:16px 20px;overflow:hidden}
+.ch-h{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.03);display:flex;align-items:center;justify-content:space-between}
+.ch-h h4{font-size:11px;font-weight:600;display:flex;align-items:center;gap:5px}
+.ch-b{height:180px;overflow-y:auto;padding:10px 14px;scrollbar-width:none}.ch-b::-webkit-scrollbar{display:none}
+.cm{display:flex;gap:7px;margin-bottom:10px;animation:mI .3s ease}
+@keyframes mI{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.cm .ca{width:24px;height:24px;border-radius:7px;overflow:hidden;flex-shrink:0}.cm .ca img{width:100%;height:100%;object-fit:cover}
+.cm .cn{font-size:8px;font-weight:600;color:var(--gold);margin-bottom:1px}
+.cm .ct{font-size:10px;color:var(--t2);background:rgba(255,255,255,.025);padding:6px 10px;border-radius:0 9px 9px 9px;display:inline-block;line-height:1.45}
+.ch-in{display:flex;gap:6px;padding:8px 14px;border-top:1px solid rgba(255,255,255,.03)}
+.ch-in input{flex:1;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);border-radius:100px;padding:7px 12px;font-size:10px;color:var(--t1);font-family:'Sora',sans-serif;outline:none;transition:.25s}
+.ch-in input:focus{border-color:var(--gold)}.ch-in input::placeholder{color:var(--t3)}
+.ch-in button{width:32px;height:32px;border-radius:50%;background:linear-gradient(145deg,var(--gd),var(--gold));border:none;color:var(--bg);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;flex-shrink:0;font-size:12px;font-weight:700}
+.ch-in button:hover{transform:scale(1.1)}
+
+/* ======== SHOP ======== */
+.sh-bal{margin:14px 20px;background:linear-gradient(145deg,var(--gd),var(--gold),var(--gl));border-radius:var(--r);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden}
+.sh-bal::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 50%,rgba(255,255,255,.08) 100%);pointer-events:none}
+.sb-l h3{font-size:9px;font-weight:600;color:rgba(0,0,0,.45);text-transform:uppercase;letter-spacing:1px}
+.sb-v{font-size:28px;font-weight:800;color:var(--bg);font-family:'Cormorant Garamond',serif}
+.sb-i{font-size:28px;position:relative;z-index:1}
+
+.scs{display:flex;gap:5px;padding:0 20px;margin-bottom:12px;overflow-x:auto;scrollbar-width:none}.scs::-webkit-scrollbar{display:none}
+.sc{flex-shrink:0;padding:4px 11px;border-radius:100px;font-size:9px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015);color:var(--t3);transition:.25s}
+.sc.on{background:var(--gg);border-color:rgba(212,168,83,.3);color:var(--gold)}
+
+.sg{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;padding:0 20px}
+.si{overflow:hidden;cursor:pointer;transition:.35s}.si:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.4)}
+.si-th{height:100px;background:rgba(255,255,255,.015);display:flex;align-items:center;justify-content:center;font-size:32px;position:relative}
+.si-rar{position:absolute;top:6px;right:6px;padding:2px 6px;border-radius:4px;font-size:7px;font-weight:600}
+.si-rar.leg{background:rgba(212,168,83,.1);color:var(--gold);border:1px solid rgba(212,168,83,.2)}
+.si-rar.epc{background:rgba(160,110,255,.1);color:var(--pur);border:1px solid rgba(160,110,255,.2)}
+.si-rar.rar{background:rgba(77,159,255,.1);color:var(--blu);border:1px solid rgba(77,159,255,.2)}
+.si-i{padding:10px}.si-i h4{font-size:10px;font-weight:600;margin-bottom:2px}
+.si-p{display:flex;align-items:center;gap:3px;font-size:11px;font-weight:700;color:var(--gold)}
+
+/* ======== PROFILE (ENHANCED CV) ======== */
+.pf-cv{height:140px;background:linear-gradient(135deg,var(--s2),var(--s3));position:relative;overflow:hidden}
+.pf-cv::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,var(--gg) 0%,transparent 50%)}
+.pf-av{position:absolute;bottom:-34px;left:20px;width:68px;height:68px;border-radius:16px;border:3px solid var(--bg);overflow:hidden;z-index:2;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.pf-av img{width:100%;height:100%;object-fit:cover}
+.pf-verified{position:absolute;bottom:-12px;left:76px;z-index:3}
+.pf-info{padding:42px 20px 16px}
+.pf-info h2{font-size:19px;font-weight:700;font-family:'Cormorant Garamond',serif;display:flex;align-items:center;gap:6px}
+.pf-info .ptag{font-size:9px;color:var(--t3);margin-top:1px}
+.pf-info .pbio{font-size:10px;color:var(--t2);margin-top:8px;line-height:1.6}
+.pf-sts{display:flex;gap:18px;margin-top:10px}
+.pf-s .pn{font-size:16px;font-weight:800;font-family:'Cormorant Garamond',serif;color:var(--gold);text-align:center}
+.pf-s .pl{font-size:8px;color:var(--t3);text-transform:uppercase;letter-spacing:.3px;text-align:center}
+.pf-actions{display:flex;gap:8px;margin-top:12px}
+.pf-btn{padding:8px 20px;border-radius:100px;background:linear-gradient(145deg,var(--gd),var(--gold));border:none;color:var(--bg);font-family:'Sora',sans-serif;font-size:10px;font-weight:600;cursor:pointer;transition:.25s;box-shadow:0 3px 12px var(--gg)}
+.pf-btn:hover{transform:scale(1.04)}
+.pf-btn.sec{background:transparent;border:1px solid rgba(255,255,255,.1);color:var(--t1);box-shadow:none}
+.pf-btn.sec:hover{border-color:var(--gold);color:var(--gold)}
+
+/* CV Section */
+.cv-sec{margin:0 20px 6px}
+.cv-sec h3{font-size:12px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;padding-top:10px}
+.cv-item{display:flex;gap:10px;padding:11px;margin-bottom:6px}
+.cv-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.cv-body{flex:1;min-width:0}
+.cv-body h4{font-size:11px;font-weight:600;margin-bottom:1px}
+.cv-body p{font-size:9px;color:var(--t3);line-height:1.5}
+.cv-body .cv-date{font-size:8px;color:var(--t3);margin-top:2px;font-weight:500}
+
+/* Endorsements */
+.endorse{display:flex;gap:6px;flex-wrap:wrap;padding:0 20px 8px}
+.end-chip{display:flex;align-items:center;gap:5px;padding:4px 10px 4px 4px;border-radius:100px;font-size:9px;font-weight:500;color:var(--t2)}
+.end-chip img{width:18px;height:18px;border-radius:50%;object-fit:cover}
+
+/* Wellness Journey */
+.timeline{position:relative;padding-left:18px;margin:0 20px}
+.timeline::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:1px;background:rgba(255,255,255,.05)}
+.tl-item{position:relative;padding:0 0 14px 16px}
+.tl-item::before{content:'';position:absolute;left:-14px;top:4px;width:7px;height:7px;border-radius:50%;border:1.5px solid var(--gold);background:var(--bg)}
+.tl-item.done::before{background:var(--gold)}
+.tl-date{font-size:8px;color:var(--t3);font-weight:500;margin-bottom:1px}
+.tl-text{font-size:10px;font-weight:500;color:var(--t2)}
+
+/* Friends */
+.fr-r{display:flex;align-items:center;gap:9px;padding:9px 12px;margin-bottom:5px}
+.fr-r img{width:32px;height:32px;border-radius:9px;object-fit:cover;border:1.5px solid var(--b1)}
+.fr-bd{flex:1;min-width:0}.fr-nm{font-size:10px;font-weight:600}.fr-st{font-size:8px;color:var(--t3)}
+.fr-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}.fr-dot.on{background:var(--grn)}.fr-dot.off{background:var(--t3)}
+
+/* ======== OPTIMA CONNECT (RAYA-STYLE) ======== */
+.connect-hero{margin:14px 20px;padding:22px;text-align:center;border-color:rgba(255,110,180,.18);background:linear-gradient(135deg,rgba(255,110,180,.04),rgba(160,110,255,.03));position:relative;overflow:hidden}
+.connect-hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:140px;height:1.5px;background:linear-gradient(90deg,transparent,var(--pnk),transparent)}
+.connect-hero h2{font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:3px}
+.connect-hero p{font-size:10px;color:var(--t3);margin-bottom:14px}
+
+.connect-tabs{display:flex;gap:6px;padding:0 20px;margin-bottom:14px}
+.cnt{flex:1;padding:10px;text-align:center;cursor:pointer;border-radius:var(--rs);font-size:11px;font-weight:600;transition:.3s}
+.cnt:hover{border-color:rgba(255,255,255,.1)}
+.cnt.on-f{border-color:rgba(77,159,255,.3);color:var(--blu);background:rgba(77,159,255,.06)}
+.cnt.on-d{border-color:rgba(255,110,180,.3);color:var(--pnk);background:rgba(255,110,180,.06)}
+
+/* Profile Card (Raya-style) */
+.disc-card{margin:0 20px 12px;border-radius:var(--r);overflow:hidden;position:relative}
+.disc-img{width:100%;height:280px;object-fit:cover;display:block}
+.disc-grad{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(6,7,9,.92) 100%)}
+.disc-info{position:absolute;bottom:0;left:0;right:0;padding:18px}
+.disc-info h3{font-size:20px;font-weight:700;font-family:'Cormorant Garamond',serif;display:flex;align-items:center;gap:6px}
+.disc-info h3 .age{font-size:14px;font-weight:400;color:var(--t2)}
+.disc-info .di-tag{font-size:9px;color:var(--t2);margin-top:2px}
+.disc-info .di-bio{font-size:10px;color:var(--t2);margin-top:6px;line-height:1.5}
+.disc-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+.disc-tag{padding:3px 8px;border-radius:6px;font-size:8px;font-weight:500;background:rgba(255,255,255,.06);color:var(--t2);border:1px solid rgba(255,255,255,.06)}
+.disc-tag.match{background:rgba(45,212,160,.08);color:var(--grn);border-color:rgba(45,212,160,.15)}
+.disc-actions{display:flex;gap:10px;justify-content:center;margin-top:14px}
+.disc-btn{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;transition:.3s;border:none}
+.disc-btn.pass{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:var(--t3)}
+.disc-btn.pass:hover{background:rgba(239,79,99,.1);border-color:var(--red);color:var(--red);transform:scale(1.08)}
+.disc-btn.like{background:rgba(45,212,160,.08);border:1px solid rgba(45,212,160,.2);color:var(--grn)}
+.disc-btn.like:hover{background:rgba(45,212,160,.15);transform:scale(1.08)}
+.disc-btn.super{background:rgba(212,168,83,.08);border:1px solid rgba(212,168,83,.2);color:var(--gold)}
+.disc-btn.super:hover{background:rgba(212,168,83,.15);transform:scale(1.08)}
+.disc-compat{position:absolute;top:12px;right:12px;padding:4px 10px;border-radius:100px;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);border:1px solid rgba(45,212,160,.2);font-size:9px;font-weight:600;color:var(--grn)}
+
+/* ======== SUBSCRIPTION ======== */
+.sub-plans{padding:0 20px}
+.plan{padding:18px;margin-bottom:10px;position:relative;overflow:hidden;text-align:center}
+.plan.pop{border-color:rgba(212,168,83,.35);background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(212,168,83,.02))}
+.plan.pop::before{content:'MOST POPULAR';position:absolute;top:10px;right:-28px;transform:rotate(45deg);background:var(--gold);color:var(--bg);font-size:7px;font-weight:700;padding:2px 32px;letter-spacing:.5px}
+.plan h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin-bottom:2px}
+.plan .price{font-size:28px;font-weight:800;font-family:'Cormorant Garamond',serif;color:var(--gold);margin:6px 0 2px}
+.plan .price span{font-size:12px;font-weight:400;color:var(--t3);font-family:'Sora',sans-serif}
+.plan .pdesc{font-size:9px;color:var(--t3);margin-bottom:10px}
+.plan-feats{text-align:left;margin-bottom:12px}
+.pf-row{display:flex;align-items:center;gap:6px;padding:4px 0;font-size:10px;color:var(--t2)}
+.pf-row .ck{color:var(--grn);font-size:11px;flex-shrink:0}
+.pf-row.dis{opacity:.35;text-decoration:line-through}
+.plan-btn{width:100%;padding:10px;border-radius:100px;border:none;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:.3s}
+.plan-btn.gold{background:linear-gradient(145deg,var(--gd),var(--gold),var(--gl));color:var(--bg);box-shadow:0 4px 16px var(--gg)}
+.plan-btn.gold:hover{transform:scale(1.03)}
+.plan-btn.outline{background:transparent;border:1px solid rgba(255,255,255,.1);color:var(--t1)}
+.plan-btn.outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ======== MORE ======== */
+.mg{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;padding:14px 20px}
+.mc{padding:16px;text-align:center;cursor:pointer}.mc:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.4)}
+.mc .mi{font-size:24px;margin-bottom:6px}.mc h4{font-size:11px;font-weight:600;margin-bottom:2px}.mc p{font-size:8px;color:var(--t3)}
+
+/* Sub pages */
+.fp{padding:14px;margin:0 20px 8px}
+.fp-h{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.fp-h img{width:28px;height:28px;border-radius:8px;object-fit:cover}
+.fp-h .fn{font-size:10px;font-weight:600}.fp-h .ft{font-size:8px;color:var(--t3)}
+.fp-t{font-size:11px;color:var(--t2);margin-bottom:8px;line-height:1.55}
+.fp-im{width:100%;height:160px;border-radius:var(--rs);overflow:hidden;background:var(--s2);margin-bottom:8px}.fp-im img{width:100%;height:100%;object-fit:cover}
+.fp-ac{display:flex;gap:12px}.fp-a{display:flex;align-items:center;gap:3px;font-size:9px;color:var(--t3);cursor:pointer;transition:.2s}.fp-a:hover{color:var(--gold)}
+
+.b2b{padding:12px;margin:0 20px 8px;display:flex;align-items:center;gap:11px}
+.b2b img{width:40px;height:40px;border-radius:11px;object-fit:cover;border:1.5px solid var(--b1)}
+.b2b-bd{flex:1;min-width:0}.b2b-bd h4{font-size:11px;font-weight:600}.b2b-bd p{font-size:9px;color:var(--t3)}
+.b2b-bt{padding:5px 11px;border-radius:100px;background:var(--gg);border:1px solid rgba(212,168,83,.22);color:var(--gold);font-size:9px;font-weight:600;cursor:pointer;transition:.25s;font-family:'Sora',sans-serif;flex-shrink:0}
+.b2b-bt:hover{background:var(--gold);color:var(--bg)}
+
+.fam{margin:0 20px 8px;padding:12px;display:flex;align-items:center;gap:11px;cursor:pointer}
+.fam:hover{border-color:var(--gold);transform:translateX(2px)}
+.fam-i{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.fam-bd{flex:1;min-width:0}.fam-bd h4{font-size:11px;font-weight:600}.fam-bd p{font-size:9px;color:var(--t3)}
+.fam .ar{margin-left:auto;color:var(--t3);font-size:12px;transition:.2s}.fam:hover .ar{color:var(--gold)}
+
+.gen{padding:12px;margin-bottom:6px}
+.gen-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.gen-nm{font-size:10px;font-weight:600}
+.gen-v{font-size:13px;font-weight:700;font-family:'Cormorant Garamond',serif}
+</style>
+</head>
+<body>
+<div class="amb"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+
+<!-- TOPBAR -->
+<div class="tb">
+  <div class="tb-l"><div class="lo"></div><span class="lt">Optima</span></div>
+  <div class="tb-on"><span class="pd"></span><span id="olc">1,247</span> online</div>
+  <div class="tb-r"><div class="tb-b" onclick="go('connect')">💫</div><div class="tb-b">🔔<div class="dot"></div></div><div class="tb-a" onclick="go('profile')"><img src="https://i.pravatar.cc/100?img=12"></div></div>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bn">
+  <div class="ni on" onclick="go('lobby')" id="n-lobby"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Lobby</span></div>
+  <div class="ni" onclick="go('health')" id="n-health"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>Health</span></div>
+  <div class="ni" onclick="go('tourney')" id="n-tourney"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg><span>Compete</span></div>
+  <div class="ni" onclick="go('shop')" id="n-shop"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Shop</span></div>
+  <div class="ni" onclick="go('more')" id="n-more"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg><span>More</span></div>
+</div>
+
+<div class="mn">
+
+<!-- ======== LOBBY ======== -->
+<div class="pg on" id="p-lobby">
+<div class="lob">
+  <div class="rank-b g"><div class="rk-i">⚡</div><div class="rk-bd"><div class="rk-rw"><span class="rk-t">Platinum III</span><span class="rk-xp">6,540 / 10,000 XP</span></div><div class="rk-s">Level 27 — Next: Diamond I</div><div class="xp-o"><div class="xp-i" style="width:65%"></div></div></div></div>
+
+  <div class="os">
+    <div class="oc g"><img src="https://i.pravatar.cc/60?img=1"><div><div class="on">Alex M.</div><div class="or">Diamond I</div></div></div>
+    <div class="oc g"><img src="https://i.pravatar.cc/60?img=5"><div><div class="on">Sarah K.</div><div class="or">Platinum II</div></div></div>
+    <div class="oc g"><img src="https://i.pravatar.cc/60?img=8"><div><div class="on">Thomas L.</div><div class="or">Gold III</div></div></div>
+    <div class="oc g"><img src="https://i.pravatar.cc/60?img=15"><div><div class="on">Julie R.</div><div class="or">Platinum I</div></div></div>
+  </div>
+
+  <div class="av-h">
+    <div class="av-w"><div class="av-gl"></div><div class="av-r2"></div><div class="av-r"></div><div class="av-im"><img src="https://i.pravatar.cc/300?img=12"></div></div>
+    <div class="av-n">MaximeOptima</div>
+    <div class="av-tg">Platinum III · Member #000042</div>
+    <div class="vb">✓ Verified Member</div>
+  </div>
+
+  <div class="st-r">
+    <div class="st-c g"><div class="st-v vg">6,540</div><div class="st-l">XP Points</div></div>
+    <div class="st-c g"><div class="st-v vgr">142</div><div class="st-l">Active Days</div></div>
+    <div class="st-c g"><div class="st-v vb">23</div><div class="st-l">Challenges</div></div>
+  </div>
+
+  <div class="mc g"><div class="mc-i">🏅</div><div class="mc-b"><div class="mc-t">Early Adopter</div><div class="mc-s">Member for 142 days · Invites unlock at Lv.15</div></div><div class="mc-n">#42</div></div>
+</div>
+
+<!-- AD: Luxury Car -->
+<div style="margin-top:14px">
+  <div class="ad-card">
+    <img class="ad-img" src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800&h=400&fit=crop" alt="">
+    <div class="ad-overlay">
+      <div class="ad-sponsor">Sponsored · Porsche</div>
+      <div class="ad-title">The New Taycan Turbo GT</div>
+      <div class="ad-sub">Performance meets sustainability. Book your test drive.</div>
+      <div class="ad-cta">Discover More →</div>
+    </div>
+    <div class="ad-badge">Ad</div>
+  </div>
+</div>
+
+<div class="sh"><h2>🎨 Skins & Avatars</h2><span class="sa">See all →</span></div>
+<div class="sks">
+  <div class="sk g eq"><div class="sk-a"><img src="https://i.pravatar.cc/120?img=12"></div><div class="sk-n">Neo Runner</div><div class="sk-t">EQUIPPED</div></div>
+  <div class="sk g"><div class="sk-a"><img src="https://i.pravatar.cc/120?img=33"></div><div class="sk-n">Ghost Mode</div><div class="sk-t">Lv.20</div></div>
+  <div class="sk g"><div class="sk-a"><img src="https://i.pravatar.cc/120?img=44"></div><div class="sk-n">Golden Aura</div><div class="sk-t">Lv.30</div></div>
+  <div class="sk g lk"><div class="sk-a"><img src="https://i.pravatar.cc/120?img=55"></div><div class="sk-n">Phoenix</div><div class="sk-t lt">🔒 Lv.50</div></div>
+  <div class="sk g lk"><div class="sk-a"><img src="https://i.pravatar.cc/120?img=60"></div><div class="sk-n">Legendary</div><div class="sk-t lt">🔒 Lv.100</div></div>
+</div>
+
+<div class="sh"><h2>📊 Levels & Rewards</h2></div>
+<div class="lt-t g">
+  <div class="lt-h"><span>Lvl</span><span>Reward</span><span>XP Req.</span><span>Status</span></div>
+  <div class="lt-r"><span class="lv-n">5</span><span class="lv-rw">Silver Wave Skin</span><span class="lv-xp">500</span><span class="lv-b u">✓</span></div>
+  <div class="lt-r"><span class="lv-n">10</span><span class="lv-rw">Early Adopter Badge</span><span class="lv-xp">1,200</span><span class="lv-b u">✓</span></div>
+  <div class="lt-r"><span class="lv-n">15</span><span class="lv-rw">🔓 Invites Unlocked</span><span class="lv-xp">2,500</span><span class="lv-b u">✓</span></div>
+  <div class="lt-r"><span class="lv-n">27</span><span class="lv-rw">Premium Tournaments</span><span class="lv-xp">6,540</span><span class="lv-b c">⭐ Now</span></div>
+  <div class="lt-r"><span class="lv-n">30</span><span class="lv-rw">Golden Aura + Whoop -20%</span><span class="lv-xp">8,000</span><span class="lv-b l">🔒</span></div>
+  <div class="lt-r"><span class="lv-n">50</span><span class="lv-rw">Legendary Skin + Merch</span><span class="lv-xp">20,000</span><span class="lv-b l">🔒</span></div>
+</div>
+
+<div class="sh"><h2>⚡ Quick Access</h2></div>
+<div class="qa">
+  <div class="qc g" onclick="go('health');htab('blood')"><div class="qi ib">🩸</div><div><div class="qt">Blood Work</div><div class="qs">3 weeks ago</div></div></div>
+  <div class="qc g" onclick="go('health');htab('fitness')"><div class="qi ig">🏃</div><div><div class="qt">Fitness</div><div class="qs">Active program</div></div></div>
+  <div class="qc g" onclick="go('checkup')"><div class="qi ibl">🛡️</div><div><div class="qt">Checkup</div><div class="qs">Passport</div></div></div>
+  <div class="qc g" onclick="go('health');htab('whoop')"><div class="qi ip">⌚</div><div><div class="qt">Whoop</div><div class="qs">Connected</div></div></div>
+</div>
+</div>
+
+<!-- ======== HEALTH ======== -->
+<div class="pg" id="p-health">
+<div class="hts">
+  <div class="ht on" onclick="htab('blood')">🩸 Blood</div>
+  <div class="ht" onclick="htab('sleep')">🌙 Sleep</div>
+  <div class="ht" onclick="htab('fitness')">💪 Fitness</div>
+  <div class="ht" onclick="htab('running')">🏃 Running</div>
+  <div class="ht" onclick="htab('whoop')">⌚ Whoop</div>
+</div>
+<div class="hp on" id="hp-blood">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><div style="width:38px;height:38px;border-radius:11px;background:rgba(239,79,99,.07);border:1px solid rgba(239,79,99,.12);display:flex;align-items:center;justify-content:center;font-size:16px">🩸</div><div><h3 style="font-size:14px;font-weight:700">Blood Work Results</h3><p style="font-size:9px;color:var(--t3)">Last: Feb 5, 2026</p></div></div>
+  <div class="bl-c g"><div class="bl-top"><span class="bl-nm">Hemoglobin</span><span class="bl-v n">14.2 g/dL</span></div><div class="bl-rg"><span>12.0</span><div class="bl-br"><div class="bl-bf n" style="width:65%"></div></div><span>17.5</span></div></div>
+  <div class="bl-c g"><div class="bl-top"><span class="bl-nm">Total Cholesterol</span><span class="bl-v w">238 mg/dL</span></div><div class="bl-rg"><span>125</span><div class="bl-br"><div class="bl-bf w" style="width:82%"></div></div><span>250</span></div></div>
+  <div class="bl-c g"><div class="bl-top"><span class="bl-nm">Fasting Glucose</span><span class="bl-v n">92 mg/dL</span></div><div class="bl-rg"><span>70</span><div class="bl-br"><div class="bl-bf n" style="width:55%"></div></div><span>110</span></div></div>
+  <div class="bl-c g"><div class="bl-top"><span class="bl-nm">Vitamin D</span><span class="bl-v d">18 ng/mL</span></div><div class="bl-rg"><span>20</span><div class="bl-br"><div class="bl-bf d" style="width:92%"></div></div><span>100</span></div></div>
+  <button class="ob">📋 Upload Doctor's Prescription</button>
+  <button class="ob blue">🔬 Schedule New Exam (+200 XP)</button>
+</div>
+<div class="hp" id="hp-sleep">
+  <div class="slp-c"><div class="slp-r"><svg viewBox="0 0 160 160"><circle class="bg-c" cx="80" cy="80" r="65"/><circle class="fg-c" cx="80" cy="80" r="65"/></svg><div><span class="slp-v">7.2</span><span class="slp-u">hours</span></div></div>
+  <div class="slp-s"><div class="slp-si g"><div class="slp-sv">11:14 PM</div><div class="slp-sl">Fell Asleep</div></div><div class="slp-si g"><div class="slp-sv">86%</div><div class="slp-sl">Quality</div></div><div class="slp-si g"><div class="slp-sv">1h42</div><div class="slp-sl">Deep Sleep</div></div></div></div>
+</div>
+<div class="hp" id="hp-fitness">
+  <div class="fit g"><div class="fit-th"><div class="play">▶</div></div><div class="fit-i"><h4>HIIT Fat Burn · Week 3</h4><p>28 min · Intermediate</p><div class="fit-tg"><span class="ft xp">+150 XP</span><span class="ft">HIIT</span><span class="ft">Full Body</span></div></div></div>
+  <div class="fit g"><div class="fit-th" style="background:linear-gradient(135deg,#151a26,#1a2030)"><div class="play">▶</div></div><div class="fit-i"><h4>Yoga Mobility · Recovery</h4><p>20 min · All levels</p><div class="fit-tg"><span class="ft xp">+80 XP</span><span class="ft">Yoga</span></div></div></div>
+  <!-- AD: Real Estate -->
+  <div class="ad-card" style="margin:8px 0">
+    <img class="ad-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=400&fit=crop" alt="" style="height:140px">
+    <div class="ad-overlay">
+      <div class="ad-sponsor">Sponsored · Barnes International</div>
+      <div class="ad-title">Luxury Living in Paris 16th</div>
+      <div class="ad-sub">Exceptional apartments from €1.2M. Private viewings available.</div>
+      <div class="ad-cta">Book a Viewing →</div>
+    </div>
+    <div class="ad-badge">Ad</div>
+  </div>
+  <div class="fit g"><div class="fit-th" style="background:linear-gradient(135deg,#1f1520,#261a22)"><div class="play">▶</div></div><div class="fit-i"><h4>Strength & Power · Push Day</h4><p>45 min · Advanced</p><div class="fit-tg"><span class="ft xp">+250 XP</span><span class="ft">Weights</span></div></div></div>
+</div>
+<div class="hp" id="hp-running">
+  <div class="run g"><div class="run-top"><span class="run-t">Morning Run 🌅</span><span class="run-d">Today, 7:12 AM</span></div><div class="run-s"><div><div class="rsv" style="color:var(--grn)">8.4</div><div class="rsl">Km</div></div><div><div class="rsv" style="color:var(--blu)">5'12"</div><div class="rsl">Pace</div></div><div><div class="rsv" style="color:var(--org)">156</div><div class="rsl">BPM</div></div></div></div>
+  <div class="run g"><div class="run-top"><span class="run-t">Intervals ⚡</span><span class="run-d">Yesterday</span></div><div class="run-s"><div><div class="rsv" style="color:var(--grn)">5.2</div><div class="rsl">Km</div></div><div><div class="rsv" style="color:var(--blu)">4'48"</div><div class="rsl">Pace</div></div><div><div class="rsv" style="color:var(--org)">172</div><div class="rsl">BPM</div></div></div></div>
+  <div class="lt-t g" style="margin:8px 0 0"><div class="lt-h"><span>🏆</span><span>Challenge</span><span>XP</span><span>Status</span></div><div class="lt-r"><span class="lv-n" style="font-size:12px">🏃</span><span class="lv-rw">First 5K</span><span class="lv-xp">300</span><span class="lv-b u">✓</span></div><div class="lt-r"><span class="lv-n" style="font-size:12px">🔥</span><span class="lv-rw">10K under 50 min</span><span class="lv-xp">800</span><span class="lv-b c">⭐</span></div><div class="lt-r"><span class="lv-n" style="font-size:12px">👑</span><span class="lv-rw">Half Marathon</span><span class="lv-xp">2,000</span><span class="lv-b l">🔒</span></div></div>
+</div>
+<div class="hp" id="hp-whoop">
+  <div class="whp g" style="margin:0 0 12px"><div style="font-size:26px">⌚</div><h4>Whoop Connected</h4><p>Real-time sync active</p><button class="wbtn" style="background:var(--grn)">✓ Synced</button></div>
+  <div class="st-r"><div class="st-c g"><div class="st-v" style="color:var(--grn)">78%</div><div class="st-l">Recovery</div></div><div class="st-c g"><div class="st-v" style="color:var(--red)">14.2</div><div class="st-l">Strain</div></div><div class="st-c g"><div class="st-v" style="color:var(--pur)">86%</div><div class="st-l">Sleep</div></div></div>
+  <div class="sh" style="padding:14px 0 6px"><h2>Whoop Challenges</h2></div>
+  <div class="lt-t g" style="margin:0"><div class="lt-h"><span>🏆</span><span>Condition</span><span>XP</span><span>Status</span></div><div class="lt-r"><span class="lv-n" style="font-size:12px">💚</span><span class="lv-rw">Recovery 80%+ × 7d</span><span class="lv-xp">500</span><span class="lv-b c">5/7</span></div><div class="lt-r"><span class="lv-n" style="font-size:12px">🔥</span><span class="lv-rw">Strain 18+ in 1 session</span><span class="lv-xp">300</span><span class="lv-b l">🔒</span></div><div class="lt-r"><span class="lv-n" style="font-size:12px">🌙</span><span class="lv-rw">Sleep 90%+ × 30d</span><span class="lv-xp">1,500</span><span class="lv-b l">🔒</span></div></div>
+</div>
+</div>
+
+<!-- ======== CHECKUP ======== -->
+<div class="pg" id="p-checkup">
+<div class="sub-h" onclick="go('lobby')"><div class="bk">←</div><h3>General Checkup</h3></div>
+<div class="psp g">
+  <div class="ppb">🛡️ Optima Health Passport</div>
+  <h3>Overall Score: 74 / 100</h3>
+  <p class="pps">Based on blood work, activity & Whoop data</p>
+  <div class="pp-g"><div class="pp-s"><div class="pp-sv ex">92</div><div class="pp-sl">Cardiovascular</div></div><div class="pp-s"><div class="pp-sv gd">78</div><div class="pp-sl">Metabolic</div></div><div class="pp-s"><div class="pp-sv md">61</div><div class="pp-sl">Locomotor</div></div><div class="pp-s"><div class="pp-sv gd">72</div><div class="pp-sl">Recovery</div></div></div>
+</div>
+<div class="sh"><h2>🧪 Tests</h2></div>
+<div class="tc g"><div class="tci lc">🦴</div><div><h4>Locomotive Syndrome</h4><p>Mobility & locomotor risk</p></div><span class="ar">→</span></div>
+<div class="tc g"><div class="tci rk">📊</div><div><h4>Risk Calculator</h4><p>Cardiovascular, diabetes, metabolic</p></div><span class="ar">→</span></div>
+<div class="tc g"><div class="tci fm">✅</div><div><h4>Fitness Assessment</h4><p>Overall index + recommendations</p></div><span class="ar">→</span></div>
+</div>
+
+<!-- ======== TOURNAMENT ======== -->
+<div class="pg" id="p-tourney">
+<div class="tour g"><h2>🏆 Optima Tournaments</h2><p>Compete and earn bonus XP</p><div class="tlv"><span class="pd" style="background:var(--red)"></span> Live — 10K Running</div></div>
+<div class="sh"><h2>Leaderboard</h2><span class="sa">This week</span></div>
+<div class="lb">
+  <div class="lr g t1"><span class="lp">1</span><div class="la"><img src="https://i.pravatar.cc/80?img=1"></div><div class="li"><div class="ln">Alex M.</div><div class="lrk">Diamond I</div></div><span class="lsc">12,480</span></div>
+  <div class="lr g"><span class="lp">2</span><div class="la"><img src="https://i.pravatar.cc/80?img=5"></div><div class="li"><div class="ln">Sarah K.</div><div class="lrk">Platinum II</div></div><span class="lsc">11,200</span></div>
+  <div class="lr g"><span class="lp">3</span><div class="la"><img src="https://i.pravatar.cc/80?img=8"></div><div class="li"><div class="ln">Thomas L.</div><div class="lrk">Gold III</div></div><span class="lsc">9,870</span></div>
+  <div class="lr g" style="border-color:rgba(212,168,83,.25);background:rgba(212,168,83,.04)"><span class="lp" style="color:var(--gold)">7</span><div class="la" style="border-color:var(--gold)"><img src="https://i.pravatar.cc/80?img=12"></div><div class="li"><div class="ln">You</div><div class="lrk">Platinum III</div></div><span class="lsc">6,540</span></div>
+</div>
+<!-- AD: Luxury Watch -->
+<div style="margin:14px 20px 0">
+  <div class="ad-card">
+    <img class="ad-img" src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=800&h=350&fit=crop" alt="" style="height:130px">
+    <div class="ad-overlay"><div class="ad-sponsor">Sponsored · Rolex</div><div class="ad-title">Oyster Perpetual Explorer</div><div class="ad-sub">For those who push beyond limits.</div><div class="ad-cta">Explore Collection →</div></div>
+    <div class="ad-badge">Ad</div>
+  </div>
+</div>
+<div class="sh"><h2>💬 Live Chat</h2></div>
+<div class="chat g">
+  <div class="ch-h"><h4><span class="pd" style="display:inline-block"></span> 47 participants</h4></div>
+  <div class="ch-b" id="chatBd">
+    <div class="cm"><div class="ca"><img src="https://i.pravatar.cc/60?img=1"></div><div><div class="cn">Alex M.</div><div class="ct">Going for 10K this weekend, who's in? 🏃‍♂️</div></div></div>
+    <div class="cm"><div class="ca"><img src="https://i.pravatar.cc/60?img=5"></div><div><div class="cn">Sarah K.</div><div class="ct">Me! PR is 48min, want to beat it 💪</div></div></div>
+    <div class="cm"><div class="ca"><img src="https://i.pravatar.cc/60?img=15"></div><div><div class="cn">Julie R.</div><div class="ct">XP reward for this one is insane ⚡</div></div></div>
+  </div>
+  <div class="ch-in"><input placeholder="Write a message..." id="chatIn" onkeypress="if(event.key==='Enter')sendC()"><button onclick="sendC()">↑</button></div>
+</div>
+</div>
+
+<!-- ======== SHOP ======== -->
+<div class="pg" id="p-shop">
+<div class="sh-bal"><div class="sb-l"><h3>Your Points</h3><div class="sb-v">6,540</div></div><div class="sb-i">💎</div></div>
+<div class="scs"><div class="sc on">All</div><div class="sc">Tech</div><div class="sc">Clothes</div><div class="sc">Skins</div><div class="sc">Goodies</div></div>
+<div class="sg">
+  <div class="si g"><div class="si-th">⌚<div class="si-rar leg">Legendary</div></div><div class="si-i"><h4>Whoop 4.0</h4><div class="si-p">💎 15,000</div></div></div>
+  <div class="si g"><div class="si-th">🎧<div class="si-rar epc">Epic</div></div><div class="si-i"><h4>AirPods Pro 3</h4><div class="si-p">💎 12,000</div></div></div>
+  <div class="si g"><div class="si-th">👕<div class="si-rar rar">Rare</div></div><div class="si-i"><h4>Optima Gold Tee</h4><div class="si-p">💎 3,000</div></div></div>
+  <div class="si g"><div class="si-th">🧢<div class="si-rar rar">Rare</div></div><div class="si-i"><h4>Optima Cap</h4><div class="si-p">💎 2,000</div></div></div>
+  <div class="si g"><div class="si-th">🎨<div class="si-rar epc">Epic</div></div><div class="si-i"><h4>Phoenix Skin</h4><div class="si-p">💎 5,000</div></div></div>
+  <div class="si g"><div class="si-th">🏋️<div class="si-rar leg">Legendary</div></div><div class="si-i"><h4>Home Gym Kit</h4><div class="si-p">💎 25,000</div></div></div>
+</div>
+</div>
+
+<!-- ======== PROFILE (ENHANCED CV) ======== -->
+<div class="pg" id="p-profile">
+<div class="sub-h" onclick="go('lobby')"><div class="bk">←</div><h3>My Profile</h3></div>
+<div class="pf-cv"><div class="pf-av"><img src="https://i.pravatar.cc/200?img=12"></div></div>
+<div class="pf-info">
+  <h2>Maxime Dupont <span style="font-size:11px;color:var(--grn);font-family:'Sora',sans-serif;font-weight:600">✓</span></h2>
+  <div class="ptag">@MaximeOptima · Member #42 · Platinum III · Paris, France</div>
+  <div class="pbio">Running enthusiast & wellness advocate. Sports nutrition certified. Building a healthier lifestyle one day at a time. Goal: complete a half marathon in 2026.</div>
+  <div class="pf-sts"><div class="pf-s"><div class="pn">142</div><div class="pl">Days</div></div><div class="pf-s"><div class="pn">23</div><div class="pl">Friends</div></div><div class="pf-s"><div class="pn">6.5K</div><div class="pl">XP</div></div><div class="pf-s"><div class="pn">12</div><div class="pl">Badges</div></div></div>
+  <div class="pf-actions"><button class="pf-btn">✉️ Message</button><button class="pf-btn sec">📅 Book Meeting</button></div>
+</div>
+
+<!-- CV: Professional -->
+<div class="cv-sec">
+  <h3>💼 Professional</h3>
+  <div class="cv-item g"><div class="cv-icon" style="background:rgba(77,159,255,.07);border:1px solid rgba(77,159,255,.13)">🏢</div><div class="cv-body"><h4>Head of Growth · TechVentures SAS</h4><p>Leading growth strategy for a B2B SaaS startup. Former consultant at McKinsey.</p><div class="cv-date">2023 — Present · Paris</div></div></div>
+  <div class="cv-item g"><div class="cv-icon" style="background:rgba(160,110,255,.07);border:1px solid rgba(160,110,255,.13)">🎓</div><div class="cv-body"><h4>MBA · HEC Paris</h4><p>Strategy & Digital Transformation. Dean's List 2022.</p><div class="cv-date">2020 — 2022</div></div></div>
+</div>
+
+<!-- CV: Certifications -->
+<div class="cv-sec">
+  <h3>🏆 Certifications & Achievements</h3>
+  <div class="cv-item g"><div class="cv-icon" style="background:rgba(45,212,160,.07);border:1px solid rgba(45,212,160,.13)">🥇</div><div class="cv-body"><h4>Sports Nutrition Level 2</h4><p>Certified by International Society of Sports Nutrition</p><div class="cv-date">Jan 2026</div></div></div>
+  <div class="cv-item g"><div class="cv-icon" style="background:var(--gg);border:1px solid rgba(212,168,83,.15)">⚡</div><div class="cv-body"><h4>Optima 10K Challenge Winner</h4><p>Finished 1st in the Optima Winter 10K Tournament</p><div class="cv-date">Dec 2025</div></div></div>
+  <div class="cv-item g"><div class="cv-icon" style="background:rgba(48,213,213,.07);border:1px solid rgba(48,213,213,.13)">🧬</div><div class="cv-body"><h4>Genetic Profile Completed</h4><p>Full DNA analysis — Endurance optimized profile</p><div class="cv-date">Nov 2025</div></div></div>
+</div>
+
+<!-- Endorsements -->
+<div class="cv-sec"><h3>👍 Endorsed By</h3></div>
+<div class="endorse">
+  <div class="end-chip g"><img src="https://i.pravatar.cc/40?img=1">Alex M. · "Great coach"</div>
+  <div class="end-chip g"><img src="https://i.pravatar.cc/40?img=5">Sarah K. · "Motivating"</div>
+  <div class="end-chip g"><img src="https://i.pravatar.cc/40?img=15">Julie R. · "Nutrition expert"</div>
+</div>
+
+<!-- Wellness Journey Timeline -->
+<div class="cv-sec"><h3>📈 Wellness Journey</h3></div>
+<div class="timeline">
+  <div class="tl-item done"><div class="tl-date">Oct 2025</div><div class="tl-text">Joined Optima · Member #42</div></div>
+  <div class="tl-item done"><div class="tl-date">Nov 2025</div><div class="tl-text">Completed first blood work analysis</div></div>
+  <div class="tl-item done"><div class="tl-date">Nov 2025</div><div class="tl-text">Connected Whoop band · Started sleep tracking</div></div>
+  <div class="tl-item done"><div class="tl-date">Dec 2025</div><div class="tl-text">Won 10K Tournament · Reached Platinum</div></div>
+  <div class="tl-item done"><div class="tl-date">Jan 2026</div><div class="tl-text">Health Passport score: 68 → 74</div></div>
+  <div class="tl-item"><div class="tl-date">Goal</div><div class="tl-text">Complete half marathon · Reach Diamond</div></div>
+</div>
+
+<!-- Friends -->
+<div class="cv-sec"><h3>👥 Friends (23)</h3></div>
+<div style="padding:0 20px">
+  <div class="fr-r g"><img src="https://i.pravatar.cc/80?img=1"><div class="fr-bd"><div class="fr-nm">Alex M.</div><div class="fr-st">Diamond I · 12,480 XP</div></div><div class="fr-dot on"></div></div>
+  <div class="fr-r g"><img src="https://i.pravatar.cc/80?img=5"><div class="fr-bd"><div class="fr-nm">Sarah K.</div><div class="fr-st">Platinum II · 11,200 XP</div></div><div class="fr-dot on"></div></div>
+  <div class="fr-r g"><img src="https://i.pravatar.cc/80?img=22"><div class="fr-bd"><div class="fr-nm">Marc D.</div><div class="fr-st">Silver II · 5,300 XP</div></div><div class="fr-dot off"></div></div>
+</div>
+</div>
+
+<!-- ======== OPTIMA CONNECT ======== -->
+<div class="pg" id="p-connect">
+<div class="sub-h" onclick="go('lobby')"><div class="bk">←</div><h3>Optima Connect</h3></div>
+<div class="connect-hero g">
+  <h2>💫 Meet. Network. Thrive.</h2>
+  <p>Exclusive connections with verified Optima members — for friendship, networking, or more.</p>
+</div>
+
+<div class="connect-tabs" id="connectTabs">
+  <div class="cnt g on-f" onclick="setConnectMode('friends')">👥 Friends & Network</div>
+  <div class="cnt g" onclick="setConnectMode('date')">💝 Dating</div>
+</div>
+
+<!-- Discover Card 1 -->
+<div class="disc-card g" style="overflow:hidden">
+  <img class="disc-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop&crop=face" alt="">
+  <div class="disc-grad"></div>
+  <div class="disc-compat">92% Match</div>
+  <div class="disc-info">
+    <h3>Camille B. <span class="age">· 28</span></h3>
+    <div class="di-tag">✓ Verified · Gold II · Member #108 · Paris</div>
+    <div class="di-bio">Yoga instructor & marathon runner. Passionate about holistic health, plant-based nutrition, and mindful living. Looking for training partners!</div>
+    <div class="disc-tags">
+      <span class="disc-tag match">🏃 Running</span>
+      <span class="disc-tag match">🧘 Yoga</span>
+      <span class="disc-tag">🥗 Nutrition</span>
+      <span class="disc-tag">🧬 Genetics</span>
+      <span class="disc-tag">🌿 Wellness</span>
+    </div>
+    <div class="disc-actions">
+      <div class="disc-btn pass" title="Pass">✕</div>
+      <div class="disc-btn super" title="Super Like">⭐</div>
+      <div class="disc-btn like" title="Connect">✓</div>
+    </div>
+  </div>
+</div>
+
+<!-- Discover Card 2 preview -->
+<div class="disc-card g" style="overflow:hidden;margin-top:12px">
+  <img class="disc-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&crop=face" alt="">
+  <div class="disc-grad"></div>
+  <div class="disc-compat">87% Match</div>
+  <div class="disc-info">
+    <h3>Antoine R. <span class="age">· 34</span></h3>
+    <div class="di-tag">✓ Verified · Platinum I · Member #67 · Lyon</div>
+    <div class="di-bio">Tech entrepreneur & CrossFit enthusiast. Co-founder of FitTech. Always up for a challenge. Let's connect over a workout or a coffee.</div>
+    <div class="disc-tags">
+      <span class="disc-tag match">💪 CrossFit</span>
+      <span class="disc-tag match">💼 Tech</span>
+      <span class="disc-tag">🏃 Running</span>
+      <span class="disc-tag">📊 B2B</span>
+    </div>
+    <div class="disc-actions">
+      <div class="disc-btn pass">✕</div>
+      <div class="disc-btn super">⭐</div>
+      <div class="disc-btn like">✓</div>
+    </div>
+  </div>
+</div>
+
+<!-- AD: Car -->
+<div style="margin:14px 20px 0">
+  <div class="ad-card">
+    <img class="ad-img" src="https://images.unsplash.com/photo-1617814076668-8dfc6fe3e5a0?w=800&h=350&fit=crop" alt="" style="height:130px">
+    <div class="ad-overlay"><div class="ad-sponsor">Sponsored · Mercedes-Benz</div><div class="ad-title">The All-New EQS SUV</div><div class="ad-sub">Luxury electrified. Configure yours today.</div><div class="ad-cta">Configure Now →</div></div>
+    <div class="ad-badge">Ad</div>
+  </div>
+</div>
+</div>
+
+<!-- ======== SUBSCRIPTION ======== -->
+<div class="pg" id="p-sub">
+<div class="sub-h" onclick="go('more')"><div class="bk">←</div><h3>Subscription Plans</h3></div>
+<div style="text-align:center;padding:0 20px 16px">
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:3px">Unlock Your Full Potential</h2>
+  <p style="font-size:10px;color:var(--t3)">Choose the plan that fits your journey</p>
+</div>
+
+<div class="sub-plans">
+  <!-- Free -->
+  <div class="plan g">
+    <h3>Starter</h3>
+    <div class="price">Free</div>
+    <div class="pdesc">Get started on your wellness journey</div>
+    <div class="plan-feats">
+      <div class="pf-row"><span class="ck">✓</span> Basic health dashboard</div>
+      <div class="pf-row"><span class="ck">✓</span> 1 blood work upload / month</div>
+      <div class="pf-row"><span class="ck">✓</span> Community forum access</div>
+      <div class="pf-row"><span class="ck">✓</span> 3 Connect swipes / day</div>
+      <div class="pf-row dis"><span class="ck">✕</span> Fitness video programs</div>
+      <div class="pf-row dis"><span class="ck">✕</span> Whoop integration</div>
+      <div class="pf-row dis"><span class="ck">✕</span> Genetic analysis</div>
+      <div class="pf-row dis"><span class="ck">✕</span> Tournaments</div>
+    </div>
+    <button class="plan-btn outline">Current Plan</button>
+  </div>
+
+  <!-- Pro -->
+  <div class="plan g pop">
+    <h3>Pro</h3>
+    <div class="price">€29<span>/mo</span></div>
+    <div class="pdesc">Everything you need to level up</div>
+    <div class="plan-feats">
+      <div class="pf-row"><span class="ck">✓</span> Full health dashboard & analytics</div>
+      <div class="pf-row"><span class="ck">✓</span> Unlimited blood work uploads</div>
+      <div class="pf-row"><span class="ck">✓</span> Full fitness video library</div>
+      <div class="pf-row"><span class="ck">✓</span> Whoop & wearable sync</div>
+      <div class="pf-row"><span class="ck">✓</span> Health Passport & risk calc</div>
+      <div class="pf-row"><span class="ck">✓</span> 20 Connect swipes / day</div>
+      <div class="pf-row"><span class="ck">✓</span> Tournament access</div>
+      <div class="pf-row dis"><span class="ck">✕</span> Genetic analysis</div>
+      <div class="pf-row dis"><span class="ck">✕</span> Priority B2B booking</div>
+    </div>
+    <button class="plan-btn gold">Upgrade to Pro</button>
+  </div>
+
+  <!-- Elite -->
+  <div class="plan g" style="border-color:rgba(160,110,255,.2)">
+    <h3>Elite</h3>
+    <div class="price" style="color:var(--pur)">€79<span>/mo</span></div>
+    <div class="pdesc">The ultimate Optima experience</div>
+    <div class="plan-feats">
+      <div class="pf-row"><span class="ck">✓</span> Everything in Pro</div>
+      <div class="pf-row"><span class="ck">✓</span> Full genetic analysis & insights</div>
+      <div class="pf-row"><span class="ck">✓</span> Unlimited Connect swipes</div>
+      <div class="pf-row"><span class="ck">✓</span> Priority B2B booking</div>
+      <div class="pf-row"><span class="ck">✓</span> 1:1 coaching session / month</div>
+      <div class="pf-row"><span class="ck">✓</span> Exclusive Elite tournaments</div>
+      <div class="pf-row"><span class="ck">✓</span> Ad-free experience</div>
+      <div class="pf-row"><span class="ck">✓</span> Early access to new features</div>
+    </div>
+    <button class="plan-btn outline" style="border-color:rgba(160,110,255,.3);color:var(--pur)">Go Elite</button>
+  </div>
+</div>
+
+<!-- AD: Real Estate -->
+<div style="margin:14px 20px">
+  <div class="ad-card">
+    <img class="ad-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=400&fit=crop" alt="" style="height:140px">
+    <div class="ad-overlay"><div class="ad-sponsor">Sponsored · Engel & Völkers</div><div class="ad-title">Waterfront Villas · French Riviera</div><div class="ad-sub">Exclusive listings starting at €2.8M. Private tours available.</div><div class="ad-cta">Explore Properties →</div></div>
+    <div class="ad-badge">Ad</div>
+  </div>
+</div>
+</div>
+
+<!-- ======== MORE ======== -->
+<div class="pg" id="p-more">
+<div class="sh"><h2>🧭 Explore</h2></div>
+<div class="mg">
+  <div class="mc g" onclick="goS('forum')"><div class="mi">📱</div><h4>Forum & Feed</h4><p>Posts, photos, discussions</p></div>
+  <div class="mc g" onclick="go('connect')"><div class="mi">💫</div><h4>Optima Connect</h4><p>Meet & network</p></div>
+  <div class="mc g" onclick="goS('partners')"><div class="mi">🤝</div><h4>Partners</h4><p>Sponsored brands</p></div>
+  <div class="mc g" onclick="goS('b2b')"><div class="mi">💼</div><h4>B2B Network</h4><p>Book with members</p></div>
+  <div class="mc g" onclick="goS('family')"><div class="mi">👨‍👩‍👧‍👦</div><h4>Optima Family</h4><p>Groups</p></div>
+  <div class="mc g" onclick="goS('genetics')"><div class="mi">🧬</div><h4>Genetics</h4><p>DNA decoded</p></div>
+  <div class="mc g" onclick="go('sub')"><div class="mi">👑</div><h4>Subscription</h4><p>Plans & pricing</p></div>
+  <div class="mc g" onclick="go('checkup')"><div class="mi">🛡️</div><h4>Checkup</h4><p>Health Passport</p></div>
+</div>
+</div>
+
+<!-- SUB PAGES -->
+<div class="pg" id="p-forum">
+<div class="sub-h" onclick="go('more')"><div class="bk">←</div><h3>Forum & Feed</h3></div>
+<div class="fp g"><div class="fp-h"><img src="https://i.pravatar.cc/60?img=1"><div><div class="fn">Alex M.</div><div class="ft">2h ago</div></div></div><div class="fp-t">New PR on the 10K! 46:32 🔥 Optima's interval program is a game changer. Thanks @Sarah!</div><div class="fp-im"><img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&h=300&fit=crop"></div><div class="fp-ac"><span class="fp-a">❤️ 47</span><span class="fp-a">💬 12</span><span class="fp-a">🔄 Share</span></div></div>
+<div class="fp g"><div class="fp-h"><img src="https://i.pravatar.cc/60?img=15"><div><div class="fn">Julie R.</div><div class="ft">5h ago</div></div></div><div class="fp-t">Health passport 68 → 82 in 3 months thanks to Optima Family nutrition program. Results speak 💪</div><div class="fp-ac"><span class="fp-a">❤️ 89</span><span class="fp-a">💬 23</span><span class="fp-a">🔄 Share</span></div></div>
+<!-- AD in feed -->
+<div class="ad-card" style="margin:0 20px 8px"><img class="ad-img" src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&h=350&fit=crop" alt="" style="height:130px"><div class="ad-overlay"><div class="ad-sponsor">Sponsored · BMW</div><div class="ad-title">The All-Electric iX</div><div class="ad-sub">Born electric. Built for the future.</div><div class="ad-cta">Learn More →</div></div><div class="ad-badge">Ad</div></div>
+</div>
+
+<div class="pg" id="p-partners">
+<div class="sub-h" onclick="go('more')"><div class="bk">←</div><h3>Partners</h3></div>
+<div class="b2b g"><div style="width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,#151520,#1a1a2e);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">⌚</div><div class="b2b-bd"><h4>Whoop</h4><p>-20% Whoop 4.0 for Lv.30+ members</p></div><div class="b2b-bt">View</div></div>
+<div class="b2b g"><div style="width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,#152015,#1a2e1a);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🥗</div><div class="b2b-bd"><h4>FoodVisor</h4><p>3 months free nutrition tracking</p></div><div class="b2b-bt">View</div></div>
+<div class="b2b g"><div style="width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,#201515,#2e1a1a);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🏋️</div><div class="b2b-bd"><h4>Basic-Fit</h4><p>-30% Premium for Optima members</p></div><div class="b2b-bt">View</div></div>
+</div>
+
+<div class="pg" id="p-b2b">
+<div class="sub-h" onclick="go('more')"><div class="bk">←</div><h3>B2B Network</h3></div>
+<div class="b2b g"><img src="https://i.pravatar.cc/100?img=32"><div class="b2b-bd"><h4>Dr. Laurent — Sports Medicine</h4><p>Mon-Fri · Paris 16th</p></div><div class="b2b-bt">Book</div></div>
+<div class="b2b g"><img src="https://i.pravatar.cc/100?img=36"><div class="b2b-bd"><h4>Claire M. — Nutritionist</h4><p>Online · Performance specialist</p></div><div class="b2b-bt">Book</div></div>
+<div class="b2b g"><img src="https://i.pravatar.cc/100?img=41"><div class="b2b-bd"><h4>Thomas B. — Coach</h4><p>Personal & group · Lyon</p></div><div class="b2b-bt">Book</div></div>
+</div>
+
+<div class="pg" id="p-family">
+<div class="sub-h" onclick="go('more')"><div class="bk">←</div><h3>Optima Family</h3></div>
+<div class="sh" style="padding-top:0"><h2>👥 Active Groups</h2></div>
+<div class="fam g"><div class="fam-i" style="background:rgba(45,212,160,.06);border:1px solid rgba(45,212,160,.12)">🏃</div><div class="fam-bd"><h4>Running Paris — 28 members</h4><p>Tue & Thu at 7 PM</p></div><span class="ar">→</span></div>
+<div class="fam g"><div class="fam-i" style="background:rgba(255,140,58,.06);border:1px solid rgba(255,140,58,.12)">🥗</div><div class="fam-bd"><h4>Nutrition & Meal Prep — 42 members</h4><p>Recipes & meal planning</p></div><span class="ar">→</span></div>
+<div class="fam g"><div class="fam-i" style="background:rgba(160,110,255,.06);border:1px solid rgba(160,110,255,.12)">🧘</div><div class="fam-bd"><h4>Yoga & Wellness — 19 members</h4><p>Live sessions Sundays</p></div><span class="ar">→</span></div>
+</div>
+
+<div class="pg" id="p-genetics">
+<div class="sub-h" onclick="go('more')"><div class="bk">←</div><h3>🧬 Genetics</h3></div>
+<div class="psp g" style="border-color:rgba(160,110,255,.18)"><div class="ppb" style="color:var(--pur);background:rgba(160,110,255,.08);border-color:rgba(160,110,255,.2)">🧬 Your DNA Profile</div><h3 style="font-size:16px">Discover What Your DNA Says</h3><p class="pps">Based on your Optima genetic test</p></div>
+<div style="padding:0 20px">
+  <div class="gen g"><div class="gen-top"><span class="gen-nm">Natural Endurance</span><span class="gen-v" style="color:var(--grn)">High</span></div><div class="bl-rg"><span>Low</span><div class="bl-br"><div class="bl-bf n" style="width:82%"></div></div><span>Elite</span></div></div>
+  <div class="gen g"><div class="gen-top"><span class="gen-nm">Muscle Recovery</span><span class="gen-v" style="color:var(--blu)">Average</span></div><div class="bl-rg"><span>Slow</span><div class="bl-br"><div class="bl-bf" style="width:55%;background:var(--blu);height:100%;border-radius:2px"></div></div><span>Fast</span></div></div>
+  <div class="gen g"><div class="gen-top"><span class="gen-nm">Caffeine Sensitivity</span><span class="gen-v" style="color:var(--org)">High</span></div><div class="bl-rg"><span>Low</span><div class="bl-br"><div class="bl-bf" style="width:88%;background:var(--org);height:100%;border-radius:2px"></div></div><span>V. High</span></div></div>
+  <div class="gen g"><div class="gen-top"><span class="gen-nm">Sprint vs Endurance</span><span class="gen-v" style="color:var(--cyn)">Endurance</span></div><div class="bl-rg"><span>Sprint</span><div class="bl-br"><div class="bl-bf" style="width:75%;background:var(--cyn);height:100%;border-radius:2px"></div></div><span>Endurance</span></div></div>
+</div>
+</div>
+
+</div>
+
+<script>
+function go(p){document.querySelectorAll('.pg').forEach(e=>e.classList.remove('on'));document.querySelectorAll('.ni').forEach(e=>e.classList.remove('on'));const el=document.getElementById('p-'+p);if(el)el.classList.add('on');const nv=document.getElementById('n-'+p);if(nv)nv.classList.add('on');window.scrollTo({top:0,behavior:'smooth'})}
+function goS(p){document.querySelectorAll('.pg').forEach(e=>e.classList.remove('on'));document.querySelectorAll('.ni').forEach(e=>e.classList.remove('on'));document.getElementById('n-more').classList.add('on');const el=document.getElementById('p-'+p);if(el)el.classList.add('on');window.scrollTo({top:0,behavior:'smooth'})}
+function htab(t){document.querySelectorAll('.hp').forEach(e=>e.classList.remove('on'));document.querySelectorAll('.ht').forEach(e=>e.classList.remove('on'));const p=document.getElementById('hp-'+t);if(p)p.classList.add('on');const m={blood:'Blood',sleep:'Sleep',fitness:'Fitness',running:'Running',whoop:'Whoop'};document.querySelectorAll('.ht').forEach(e=>{if(e.textContent.includes(m[t]))e.classList.add('on')})}
+function sendC(){const i=document.getElementById('chatIn'),t=i.value.trim();if(!t)return;const b=document.getElementById('chatBd'),m=document.createElement('div');m.className='cm';m.innerHTML=`<div class="ca"><img src="https://i.pravatar.cc/60?img=12"></div><div><div class="cn" style="color:var(--gl)">You</div><div class="ct">${t}</div></div>`;b.appendChild(m);b.scrollTop=b.scrollHeight;i.value=''}
+function setConnectMode(mode){const tabs=document.querySelectorAll('.cnt');tabs.forEach(t=>{t.classList.remove('on-f','on-d')});if(mode==='friends')tabs[0].classList.add('on-f');else tabs[1].classList.add('on-d')}
+document.querySelectorAll('.sc').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.sc').forEach(x=>x.classList.remove('on'));c.classList.add('on')}));
+setInterval(()=>{document.getElementById('olc').textContent=(1247+Math.floor(Math.random()*20)-10).toLocaleString()},5000);
+</script>
+</body>
+</html>
